@@ -132,7 +132,7 @@ En circuitos digitales vamos a codificar en binario
 | Y<sub>2</sub> | 10 |
 | Y<sub>3</sub> | 11 |
 
-| S<sub>i</sub> | ω(S<sub>i</sub>) |
+| S<sub>i</sub> | (S<sub>i</sub>) |
 |--------|-------|
 | 000 | 00 |
 | 001 | 00 |
@@ -149,9 +149,44 @@ Esto define 2 tablas de verdad:
 
 ## Registros
 
-Registro, definición informal: La FSM más pequeña posible. Más pequeña significa
+### Definición Informal de Registro
+Un registro se puede definir, de manera informal, como la Máquina de Estado Finito (FSM) más pequeña posible. Cuando decimos "más pequeña", nos referimos a las siguientes características:
 
-Ax = {0,1}
-Ay = {0,1}
-As = {0,1}
-S<sub>0</sub> = puede ser 0 (rst) o puede ser 1 (set)
+- **Ax** = {0,1}
+- **Ay** = {0,1}
+- **As** = {0,1}
+  
+El estado inicial **S<sub>0</sub>** puede tener el valor 0 (representado como "rst") o el valor 1 (representado como "set").
+
+Tanto δ como ω tienen la función identidad.
+
+### Función Identidad para δ
+
+- δ(0,S<sub>i</sub>) = 0
+- δ(1,S<sub>i</sub>) = 1
+
+### Función Identidad para ω
+
+Para una FSM tipo **Moore**:
+
+- ω(0) = 0
+- ω(1) = 1
+
+Para una FSM tipo **Mealy**, se debe agregar la entrada **X<sub>i</sub>**.
+
+![Alt text](registro.png)
+
+¿Cómo se implementa esto en la práctica?
+
+Tomemos un multiplexor de 1 línea de selección
+
+![Alt text](multiplexor.png)
+
+![Alt text](registro2.png)
+
+- y = x<sub>0</sub>*not s +x<sub>1</sub>*s
+- Q<sub>i+1</sub> = D<sub>i</sub>*clk+Q<sub>i</sub>*not clk
+
+![Alt text](regristrowmult.png)
+
+Todas las líneas son de 1 bit
