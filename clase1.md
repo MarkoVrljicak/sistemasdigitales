@@ -190,3 +190,20 @@ Tomemos un multiplexor de 1 línea de selección
 ![Alt text](regristrowmult.png)
 
 Todas las líneas son de 1 bit
+
+![Alt text](real.png)
+![Alt text](rst.png)
+
+Reemplazando el AND por un OR, rst se convierte en set.
+
+![Alt text](latch.png)
+
+Se dice que Latch es "transparente en alto", donde una señal o condición de 1 no afecta o no tiene influencia en el comportamiento del registro.
+
+Appendeandole un latch negativo,
+
+![Alt text](latchneg.png)
+
+![Alt text](tempneg.png)
+
+Esto es un Flip flop de flanco positivo (posedge triggered D flip flop)
